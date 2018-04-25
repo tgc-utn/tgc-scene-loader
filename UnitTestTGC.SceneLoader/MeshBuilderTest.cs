@@ -40,7 +40,7 @@ namespace UnitTestTGC.SceneLoader
                 Dock = DockStyle.Fill,
                 Location = new Point(0, 0),
                 Name = "panel3D",
-                Size = new Size(784, 561),
+                Size = new Size(800, 600),
                 TabIndex = 0
             };
             //Crear Graphics Device
@@ -53,8 +53,7 @@ namespace UnitTestTGC.SceneLoader
             TGCObjLoader tgcObjLoader = new TGCObjLoader();
             tgcObjLoader.LoadObjFromFile(_fullobjpath);
             _resObjMesh = tgcObjLoader.ObjMeshContainer.ListObjMesh.First();
-            MeshBuilder auxMeshBuilder = new MeshBuilder()
-                .AddDxMesh(_resObjMesh.FaceTriangles.Count);
+            MeshBuilder auxMeshBuilder = new MeshBuilder().AddDxMesh(_resObjMesh.FaceTriangles.Count);
             Assert.AreEqual(auxMeshBuilder.DxMesh.NumberVertices, _resObjMesh.FaceTriangles.Count * 3);
             Assert.AreEqual(auxMeshBuilder.DxMesh.NumberFaces, _resObjMesh.FaceTriangles.Count);
             Assert.NotNull(auxMeshBuilder.DxMesh);
@@ -212,7 +211,8 @@ namespace UnitTestTGC.SceneLoader
             tgcObjLoader.LoadObjFromFile(_fullobjpath);
             _resObjMesh = tgcObjLoader.ObjMeshContainer.ListObjMesh.First();
             MeshBuilder meshBuilder = new MeshBuilder()
-                .AddMaterials(tgcObjLoader.ObjMaterialsLoader).ChargueMaterials();
+                .AddMaterials(tgcObjLoader.ObjMaterialsLoader)
+                .ChargueMaterials();
             Assert.NotNull(meshBuilder.MeshMaterials);
         }
 
@@ -223,7 +223,8 @@ namespace UnitTestTGC.SceneLoader
             tgcObjLoader.LoadObjFromFile(_fullobjpathmultimaterial);
             _resObjMesh = tgcObjLoader.ObjMeshContainer.ListObjMesh.First();
             MeshBuilder meshBuilder = new MeshBuilder()
-                .AddMaterials(tgcObjLoader.ObjMaterialsLoader).ChargueMaterials();
+                .AddMaterials(tgcObjLoader.ObjMaterialsLoader)
+                .ChargueMaterials();
             Assert.NotNull(meshBuilder.MeshMaterials);
         }
 
@@ -245,7 +246,9 @@ namespace UnitTestTGC.SceneLoader
             TGCObjLoader tgcObjLoader = new TGCObjLoader();
             tgcObjLoader.LoadObjFromFile(_fullobjpathmeshcolorsolo);
             _resObjMesh = tgcObjLoader.ObjMeshContainer.ListObjMesh.First();
-            MeshBuilder meshBuilder = new MeshBuilder().AddDxMesh(_resObjMesh.FaceTriangles.Count).ChargeBuffer(tgcObjLoader.ObjMeshContainer, 0);
+            MeshBuilder meshBuilder = new MeshBuilder()
+                .AddDxMesh(_resObjMesh.FaceTriangles.Count)
+                .ChargeBuffer(tgcObjLoader.ObjMeshContainer, 0);
             Assert.NotNull(meshBuilder.DxMesh);
         }
 

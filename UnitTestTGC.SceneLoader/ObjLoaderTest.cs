@@ -1,10 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Windows.Forms;
-using TGC.Core.Direct3D;
 using TGC.Core.SceneLoader;
 using TGC.SceneLoader.Model;
 
@@ -16,7 +13,6 @@ namespace UnitTestTGC.SceneLoader
         private string _fullobjpath;
         private string _fullobjpathmeshcolorsolo;
         private string _fullobjpathmeshcontextura;
-        private Panel _panel3D;
 
         [SetUp]
         public void Init()
@@ -30,18 +26,6 @@ namespace UnitTestTGC.SceneLoader
             _fullobjpath = Path.Combine(dir, testDataCuboTextura);
             _fullobjpathmeshcolorsolo = Path.Combine(dir, testDataMeshColorSolo);
             _fullobjpathmeshcontextura = Path.Combine(dir, testDataMeshConTextura);
-
-            //Instanciamos un panel para crear un device
-            _panel3D = new Panel
-            {
-                Dock = DockStyle.Fill,
-                Location = new Point(0, 0),
-                Name = "panel3D",
-                Size = new Size(784, 561),
-                TabIndex = 0
-            };
-            //Crear Graphics Device
-            D3DDevice.Instance.InitializeD3DDevice(_panel3D);
         }
 
         [TestCase]
@@ -54,7 +38,7 @@ namespace UnitTestTGC.SceneLoader
         }
 
         [TestCase]
-        public void ProcessLineReturnWithLineBlanck()
+        public void ProcessLineReturnWithEmptyLine()
         {
             var tgcObjLoader = new TGCObjLoader();
             var line = String.Empty;
@@ -63,7 +47,7 @@ namespace UnitTestTGC.SceneLoader
         }
 
         [TestCase]
-        public void ProcessLineReturnWithSpaceBlanck()
+        public void ProcessLineReturnWithWhiteSpace()
         {
             var tgcObjLoader = new TGCObjLoader();
             var line = "        ";

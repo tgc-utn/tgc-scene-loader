@@ -1,9 +1,6 @@
 ﻿using NUnit.Framework;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Windows.Forms;
-using TGC.Core.Direct3D;
 using TGC.SceneLoader.Model;
 
 namespace UnitTestTGC.SceneLoader
@@ -13,7 +10,6 @@ namespace UnitTestTGC.SceneLoader
     {
         private string _fullobjpathmultimaterial;
         private ObjMesh _resObjMesh;
-        private Panel _panel3D;
 
         [SetUp]
         public void Init()
@@ -23,18 +19,6 @@ namespace UnitTestTGC.SceneLoader
             //Creamos los materiales para luego poder probar la creacion del mesh
             var dir = TestContext.CurrentContext.TestDirectory + "\\..\\..\\Resources";
             _fullobjpathmultimaterial = Path.Combine(dir, testDatabb8Multimaterial);
-
-            //Instanciamos un panel para crear un divice
-            _panel3D = new Panel
-            {
-                Dock = DockStyle.Fill,
-                Location = new Point(0, 0),
-                Name = "panel3D",
-                Size = new Size(784, 561),
-                TabIndex = 0
-            };
-            //Crear Graphics Device
-            D3DDevice.Instance.InitializeD3DDevice(_panel3D);
         }
 
         [TestCase]
