@@ -5,9 +5,9 @@ using System.Runtime.InteropServices;
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
 [assembly: AssemblyTitle("TGC.SceneLoader")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("TGC.SceneLoader is a simple Wavefront .obj and .mtl loader")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("TGC - UTN.BA")]
 [assembly: AssemblyProduct("TGC.SceneLoader")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
@@ -16,7 +16,7 @@ using System.Runtime.InteropServices;
 // Si establece ComVisible en false, los tipos de este ensamblado no estarán visibles
 // para los componentes COM.  Si es necesario obtener acceso a un tipo en este ensamblado desde
 // COM, establezca el atributo ComVisible en true en este tipo.
-[assembly: ComVisible(false)]
+[assembly: ComVisible(true)]
 
 // El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
 [assembly: Guid("a6106832-1687-482a-927b-e56f674cc64f")]
